@@ -9,6 +9,7 @@
   display: flex;
   justify-content: space-between;
   padding: 2rem;
+  border: 1px solid black;
 }
 .nav-center-buttons-container {
   display: flex;

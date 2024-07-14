@@ -1,7 +1,4 @@
-<script setup lang="ts">
-import PostCard from './components/PostCard.vue';
-import Process from './components/Process.vue';
-</script>
+<script setup lang="ts"></script>
 <template lang="html">
   <div class="info-page-container">
     <PostCard />

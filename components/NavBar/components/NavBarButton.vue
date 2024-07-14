@@ -1,19 +1,17 @@
-<template lang="html">
-  <button class="nav-bar-button" @click="action()">
-    {{ text }}
-  </button>
-</template>
 <script setup>
 const props = defineProps({
-  text: String,
+  buttonText: String,
   action: Function,
 });
 </script>
+<template lang="html">
+  <button class="nav-bar-button" @click="props.action()">
+    {{ buttonText }}
+  </button>
+</template>
 <style lang="css" scoped>
 .nav-bar-button {
-  border: 1px solid black;
-  border-radius: 18px;
-  background-color: transparent;
+  border-radius: 1.125rem;
   height: 2.25rem;
   padding: 0 1rem;
 }

@@ -1,10 +1,6 @@
 <template>
   <div>
-    <NavBar />
-    <div class="web-wrapper">
-      <NuxtPage />
-    </div>
-    <FooterComponent />
+    <NuxtPage />
   </div>
 </template>
 <script setup lang="ts"></script>
@@ -15,12 +11,9 @@ html {
   font-size: 16px;
   --eucalipto: #007676;
   --menta-fresca: #e2eeec;
+  --no-negro: #161216;
+  background-color: var(--no-negro);
   max-width: 100vw;
-  background: linear-gradient(
-      rgba(255, 255, 255, 0.85),
-      rgba(255, 255, 255, 0.85)
-    ),
-    url('../muur/static/images/tile1.png');
   background-size: 8rem;
   background-repeat: repeat;
 }
@@ -44,24 +37,30 @@ p {
 }
 
 button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+  padding: 0 15px;
   border: 1px solid var(--menta-fresca);
+  border-radius: 1.125rem;
   color: var(--eucalipto);
-  cursor: pointer;
   background-color: white;
+  cursor: pointer;
+  max-width: 100%;
 }
 button:hover {
   background-color: var(--menta-fresca);
 }
 
 .circular-button {
-  width: 4rem;
-  height: 4rem;
   border-radius: 100%;
+  width: 2rem;
 }
 .sub-text {
   font-size: 13px;
 }
 .web-wrapper {
-  margin: 1rem;
+  margin: 2rem;
 }
 </style>

@@ -1,0 +1,13 @@
+{
+  "key": "camanchaca",
+  "name": "Comunicaciones internas Camanchaca",
+  "filters": [
+    { "key": "illustration", "text": "#ilustración" },
+    { "key": "3d", "text": "#3d" },
+    { "key": "identity", "text": "#identidad" },
+    { "key": "animation", "text": "#animación" }
+  ],
+  "year": 2021,
+  "client": "Salmones Camanchaca",
+  "description": "Participación: diseño"
+}

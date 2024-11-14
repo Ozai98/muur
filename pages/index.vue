@@ -13,12 +13,12 @@ import { type MainButtonProps } from '~~/types';
 import { useGlobalStore } from '~~/stores/global';
 const globalStore = useGlobalStore();
 const getFilters = async () => {
-  const response = await fetch('api/get-filters');
+  const response = await fetch('api/get-filters?basePath=public/projects');
   const filters = await response.json();
   globalStore.setFilters(filters);
 };
 const getProjects = async () => {
-  const response = await fetch('api/get-projects');
+  const response = await fetch('api/get-projects?basePath=public/projects');
   const projects = await response.json();
   globalStore.setProjects(projects);
 };

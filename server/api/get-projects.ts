@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { Project } from '~/types';
 export default defineEventHandler(() => {
-  const basePath = path.resolve('public/projects');
+  const basePath = path.resolve('static/projects');
   const projects: Project[] = [];
 
   const projectFolders = fs.readdirSync(basePath);

@@ -3,7 +3,7 @@ import path from 'path';
 import { Filter } from '~~/types';
 
 export default defineEventHandler(() => {
-  const basePath = path.resolve('static/projects');
+  const basePath = path.resolve('public/projects');
   const filtersMap = new Map<string, Filter>(); // Mapa para almacenar filtros únicos por `key`
 
   const projectFolders = fs.readdirSync(basePath);

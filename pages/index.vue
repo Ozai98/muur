@@ -42,7 +42,6 @@ const buttons: MainButtonProps[] = [
     text: 'contacto',
     isButtonACircle: false,
     onClick: () => {
-      console.log('hola');
       window.open('https://api.whatsapp.com/send?phone=56972087140', '_blank');
     },
   },

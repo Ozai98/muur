@@ -11,7 +11,7 @@ export type Project = {
   year: number;
   client: string;
   description: string;
-  imageReel: string[] | [];
+  imageReel: string[];
 };
 
 export type GlobalState = {

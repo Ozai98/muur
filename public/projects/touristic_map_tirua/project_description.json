@@ -1,0 +1,11 @@
+{
+  "key": "touristic_map_tirua",
+  "name": "Mapa turístico Tirúa y Lago Lleu-lleu",
+  "filters": [
+    { "key": "map", "text": "#mapa" },
+    { "key": "infographic", "text": "#infografía" }
+  ],
+  "year": 2023,
+  "client": "Municipalidad de Tirúa",
+  "description": "Trabajo en conjunto con Equipo MKT Street"
+}

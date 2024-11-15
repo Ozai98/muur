@@ -1,45 +1,44 @@
-import fs from 'fs';
-import path from 'path';
 import { Project } from '~/types';
 
-export default defineEventHandler((event) => {
-  // Obtiene los parámetros de consulta (query) de la URL
-  const query = getQuery(event);
-  const basePath =
-    (query.basePath as string) || path.resolve('public/projects'); // Usa `basePath` desde la URL o la ruta predeterminada
-
-  const projects: Project[] = [];
+export default defineEventHandler(async () => {
+  const basePath = 'assets:server:projects';
+  const storage = useStorage(basePath);
+  let projects: Project[] = [];
+  const projectsMap = new Map<string, Project>();
+  const placeholderProject = () => {
+    return {
+      key: 'placeholder',
+      name: 'Placeholder Project',
+      filters: [],
+      year: 2001,
+      client: 'Tu mami',
+      description: 'This is a placeholder project.',
+      imageReel: [],
+    };
+  };
 
   try {
-    const projectFolders = fs.readdirSync(basePath);
-
-    projectFolders.forEach((folder) => {
-      const projectPath = path.join(basePath, folder);
-      const descriptionFilePath = path.join(
-        projectPath,
-        'project_description.json'
-      );
-
-      if (fs.existsSync(descriptionFilePath)) {
-        const projectDescription = JSON.parse(
-          fs.readFileSync(descriptionFilePath, 'utf-8')
-        ) as Omit<Project, 'imageReel'>;
-
-        // Obtener todas las imágenes en la carpeta del proyecto
-        const imageReel = fs
-          .readdirSync(projectPath)
-          .filter((file) => /\.(jpg|jpeg|png|gif|webp)$/.test(file))
-          .map((file) => `/projects/${folder}/${file}`); // Sirviendo desde la carpeta static
-
-        // Crear el proyecto con la propiedad imageReel
-        const project: Project = {
-          ...projectDescription,
-          imageReel,
-        };
-
-        projects.push(project); // Añadir el proyecto al array
+    const filePaths = await storage.getKeys('');
+    for (const file of filePaths) {
+      const potentialKey = file.split(':')[0];
+      if (!projectsMap.has(potentialKey)) {
+        projectsMap.set(potentialKey, placeholderProject());
       }
-    });
+      const tempProject = projectsMap.get(potentialKey);
+      if (tempProject) {
+        if (file.includes('project_description.json')) {
+          const description = (await storage.getItem(file)) as Project;
+          description.imageReel = tempProject.imageReel;
+          projectsMap.set(potentialKey, description);
+        } else {
+          const imageURL = `projects/${file.replace(':', '/')}`;
+          tempProject?.imageReel?.push(imageURL);
+          projectsMap.set(potentialKey, tempProject);
+        }
+      }
+    }
+
+    projects = Array.from(projectsMap.values());
   } catch (error: any) {
     throw createError({
       statusCode: 500,

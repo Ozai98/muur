@@ -14,12 +14,11 @@ import { useGlobalStore } from '~~/stores/global';
 const globalStore = useGlobalStore();
 const getFilters = async () => {
   const response = await fetch('api/get-filters');
-  console.log(response);
   const filters = await response.json();
   globalStore.setFilters(filters);
 };
 const getProjects = async () => {
-  const response = await fetch('api/get-projects?basePath=public/projects');
+  const response = await fetch('api/get-projects');
   const projects = await response.json();
   globalStore.setProjects(projects);
 };
@@ -43,7 +42,7 @@ const buttons: MainButtonProps[] = [
     text: 'contacto',
     isButtonACircle: false,
     onClick: () => {
-      window.open('https://api.whatsapp.com/send?phone=56972087140', '_blank');
+      window.open('mailto:dandraezdg@gmail.com', '_blank');
     },
   },
 ];

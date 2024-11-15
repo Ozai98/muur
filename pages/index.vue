@@ -13,7 +13,8 @@ import { type MainButtonProps } from '~~/types';
 import { useGlobalStore } from '~~/stores/global';
 const globalStore = useGlobalStore();
 const getFilters = async () => {
-  const response = await fetch('api/get-filters?basePath=public/projects');
+  const response = await fetch('api/get-filters');
+  console.log(response);
   const filters = await response.json();
   globalStore.setFilters(filters);
 };

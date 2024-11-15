@@ -40,7 +40,7 @@ export default defineEventHandler((event) => {
         projects.push(project); // Añadir el proyecto al array
       }
     });
-  } catch (error) {
+  } catch (error: any) {
     throw createError({
       statusCode: 500,
       message: `Error leyendo la carpeta en ${basePath}: ${error.message}`,

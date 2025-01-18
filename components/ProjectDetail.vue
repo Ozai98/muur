@@ -65,6 +65,7 @@ const handleGoBack = () => {
   top: 0;
   left: 0;
   background-color: var(--no-negro-80-porciento);
+  backdrop-filter: blur(8px);
 }
 .details-wrapper {
   margin-top: 2.75rem;
@@ -152,6 +153,7 @@ const handleGoBack = () => {
     align-items: center;
     height: 100%;
     gap: 5.5rem;
+    padding-bottom: 11rem;
   }
   .image-item {
     max-width: calc(100vw - 1rem);

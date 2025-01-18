@@ -1,7 +1,7 @@
 <template>
   <div class="mosaic-container">
     <ProjectTile
-      v-for="project in projectsToShow"
+      v-for="project in globalStore.filteredProjects"
       :key="project.key"
       :project="project"
       @click="globalStore.setActiveProject(project)"
@@ -12,21 +12,23 @@
 <script lang="ts" setup>
 import { useGlobalStore } from '~~/stores/global';
 const globalStore = useGlobalStore();
-const projectsToShow = computed(() => {
-  return globalStore.projects.filter((project) => {
-    return globalStore.activeFilters.every((filter) =>
-      project.filters.some((projectFilter) => projectFilter.key === filter.key)
-    );
-  });
-});
 </script>
 <style scoped>
-.mosaic-container {
-  column-count: 2;
-  column-gap: 1rem;
-  width: calc(80% - 2rem);
-  margin-top: 6rem;
-  margin-left: 20%;
-  padding: 0 1rem;
+@media (min-width: 1681px) {
+  .mosaic-container {
+    column-count: 2; /* Dos columnas iguales */
+    column-gap: 1rem; /* Equivalente a column-gap */
+    max-width: 77rem;
+    margin: 14rem 11rem 0 auto;
+    /* Espaciado superior y desplazamiento hacia la derecha */
+  }
+}
+
+@media (max-width: 1680px) {
+  .mosaic-container {
+    column-count: 2; /* Dos columnas iguales */
+    column-gap: 0.5rem; /* Equivalente a column-gap */
+    margin: 14rem 0 0;
+  }
 }
 </style>

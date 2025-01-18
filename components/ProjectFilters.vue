@@ -14,13 +14,17 @@
       />
     </div>
     <div class="filters-row">
-      <MainButton text="Filtros" :on-click="globalStore.toggleFilters" />
+      <MainButton
+        class="filter-toggle"
+        text="Filtros"
+        :on-click="globalStore.toggleFilters"
+      />
       <GeneralTag
         v-for="filter in globalStore.activeFilters"
         :key="filter.key"
         class="active-filter"
         :text="filter.text"
-        :on-click="() => globalStore.moveFilter(filter)"
+        :on-click="() => handleFilterClick(filter)"
         :is-tag-active="filter.isFilterOn"
       />
     </div>
@@ -28,11 +32,16 @@
 </template>
 
 <script setup lang="ts">
+import type { Filter } from '~/types';
 import { useGlobalStore } from '~~/stores/global';
 
 const globalStore = useGlobalStore();
 const handleScroll = () => {
   if (globalStore.areIdleFiltersShown) globalStore.toggleFilters();
+};
+
+const handleFilterClick = (filter: Filter) => {
+  globalStore.moveFilter(filter);
 };
 
 onMounted(() => {
@@ -53,10 +62,11 @@ onUnmounted(() => {
   flex-direction: column;
   gap: 1rem;
   overflow: hidden;
+  z-index: 2;
 }
 .filters-row {
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 .filters-accordion {
   display: flex;
@@ -76,5 +86,27 @@ onUnmounted(() => {
   max-height: 400px;
   opacity: 1;
   visibility: visible;
+}
+.filter-toggle {
+  margin-right: 0.5rem;
+}
+@media (orientation: portrait) {
+  .filters-list-container {
+    left: auto;
+    right: 2rem;
+    align-items: flex-end;
+  }
+  .filters-accordion {
+    align-items: flex-end;
+  }
+  .filter-toggle {
+    margin-right: 0;
+    margin-left: 0.5rem;
+  }
+  .filters-row {
+    flex-direction: row-reverse;
+    max-width: 100%;
+    flex-wrap: wrap-reverse;
+  }
 }
 </style>

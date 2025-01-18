@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <h1>Daniela Andrade</h1>
+    <h1 class="title">Daniela Andrade Sáez</h1>
     <MainButton
       v-for="(button, index) in props.buttons"
       :key="index"
@@ -30,5 +30,14 @@ nav {
   justify-content: space-between;
   margin: 2rem;
   z-index: 2;
+}
+.title {
+  max-width: 8rem;
+}
+@media (orientation: portrait) {
+  nav {
+    margin: 2rem 0 0 1rem;
+    width: calc(100vw - 2rem);
+  }
 }
 </style>

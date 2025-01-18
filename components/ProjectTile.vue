@@ -1,7 +1,7 @@
 <template>
   <div class="tile-container">
     <div class="name-container">
-      <h1>{{ props.project.name }}</h1>
+      <h2>{{ props.project.name }}</h2>
     </div>
     <img
       class="tile-image"
@@ -31,7 +31,7 @@ const props = defineProps<{
   width: 100%; /* Hace que todas las imágenes ocupen el ancho completo */
   height: auto; /* Mantiene la proporción original de cada imagen */
   object-fit: cover; /* Opcional: ajusta el encuadre de la imagen */
-  border-radius: 1rem;
+  border-radius: 0.5rem;
 }
 .name-container {
   position: absolute;
@@ -55,5 +55,10 @@ const props = defineProps<{
   opacity: 1; /* Se hace visible al hacer hover */
   cursor: pointer;
   background-color: var(--no-negro-80-porciento);
+}
+@media (max-width: 1680px) {
+  .tile-container {
+    margin-bottom: 0.5rem;
+  }
 }
 </style>

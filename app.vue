@@ -5,7 +5,28 @@
 </template>
 <script setup lang="ts"></script>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@font-face {
+  font-family: 'Overused-Grotesk';
+  src: url('assets/fonts/OverusedGrotesk-Roman.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Overused-Grotesk';
+  src: url('assets/fonts/OverusedGrotesk-Medium.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ortica-Linear';
+  src: url('assets/fonts/OrticaLinear-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+
 
 html {
   font-size: 16px;
@@ -21,19 +42,25 @@ html {
 
 * {
   margin: 0;
-  font-family: 'Atkinson Hyperlegible', sans-serif;
+  font-family: 'Overused-Grotesk', sans-serif;
   color: var(--menta-fresca);
 }
 
 h1 {
-  font-size: 2.5625rem;
+  font-family: 'Ortica-Linear', serif;
+  font-size: 2.5rem;
   font-weight: 700;
+  line-height: 44px;
+  letter-spacing: 0.04rem;
 }
 h2 {
-  font-size: 2rem;
+  font-family: 'Overused-Grotesk', sans-serif;
+  font-size: 1.375rem;
   font-weight: 400;
+  letter-spacing: 0.04rem;
 }
 p {
+  font-family: 'Overused-Grotesk', sans-serif;
   font-size: 1rem;
   font-weight: 400;
 }

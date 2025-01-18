@@ -2,7 +2,9 @@
   <div>
     <NavBar :buttons="buttons" />
     <ProjectFilters />
-    <ProjectsMosaic />
+    <div class="mosaic-wrapper">
+      <ProjectsMosaic />
+    </div>
     <ProjectDetail v-if="globalStore.currentActiveProject !== null" />
   </div>
 </template>
@@ -21,6 +23,7 @@ const getProjects = async () => {
   const response = await fetch('api/get-projects');
   const projects = await response.json();
   globalStore.setProjects(projects);
+  globalStore.setFilteredProjects(projects);
 };
 const { currentActiveProject } = storeToRefs(useGlobalStore());
 
@@ -28,7 +31,6 @@ onMounted(() => {
   getFilters();
   getProjects();
 });
-
 watch(currentActiveProject, (newValue) => {
   if (newValue) {
     document.body.classList.add('no-scroll');
@@ -51,5 +53,10 @@ const buttons: MainButtonProps[] = [
 <style>
 .no-scroll {
   overflow: hidden;
+}
+.mosaic-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
 }
 </style>

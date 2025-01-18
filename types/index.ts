@@ -20,6 +20,7 @@ export type GlobalState = {
   areIdleFiltersShown: boolean;
   currentActiveProject: Project | null;
   projects: Project[];
+  filteredProjects: Project[];
 };
 
 export type MainButtonProps = {

@@ -11,7 +11,7 @@
         <div class="details-wrapper">
           <h2 class="client-line">
             {{ globalStore.currentActiveProject?.client }}
-            -
+            |
             {{ globalStore.currentActiveProject?.year }}
           </h2>
           <p>{{ globalStore.currentActiveProject?.description }}</p>

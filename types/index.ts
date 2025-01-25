@@ -8,7 +8,7 @@ export type Project = {
   key: string;
   name: string;
   filters: Filter[];
-  year: number;
+  year: string;
   client: string;
   description: string;
   imageReel: string[];

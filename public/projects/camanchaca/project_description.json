@@ -1,6 +1,6 @@
 {
   "key": "camanchaca",
-  "name": "Comunicaciones internas Camanchaca",
+  "name": "Comunicaciones Internas",
   "filters": [
     { "key": "illustration", "text": "#ilustración" },
     { "key": "3d", "text": "#3d" },
@@ -8,6 +8,6 @@
     { "key": "animation", "text": "#animación" }
   ],
   "year": "2021",
-  "client": "Salmones Camanchaca",
-  "description": "Participación: diseño"
+  "client": "en Salmones Camanchaca",
+  "description": "Trabajos realizados como practicante profesional en Salmones Camanchaca Tomé"
 }

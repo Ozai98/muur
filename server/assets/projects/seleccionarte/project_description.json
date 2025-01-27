@@ -1,10 +1,7 @@
 {
   "key": "seleccionarte",
   "name": "Mockups 3D",
-  "filters": [
-    { "key": "3d", "text": "#3d" },
-    { "key": "animation", "text": "#animación" }
-  ],
+  "filters": [{ "key": "3d", "text": "#3d" }],
   "year": "2019",
   "client": "en Seleccionarte",
   "description": "Modelado 3D y texturas"

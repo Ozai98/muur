@@ -1,13 +1,8 @@
 {
   "key": "pantallasled",
-
   "name": "LEDs Concepción",
-
   "filters": [{ "key": "animation", "text": "#animación" }],
-
   "year": "2023",
-
   "client": "MKT Street",
-
   "description": "Animación y composición de anuncios para las pantallas viales de la empresa en Concepción"
 }

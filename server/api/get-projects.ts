@@ -10,8 +10,8 @@ export default defineEventHandler(async () => {
       key: 'placeholder',
       name: 'Placeholder Project',
       filters: [],
-      year: 2001,
-      client: 'Tu mami',
+      year: '2001',
+      client: 'Client',
       description: 'This is a placeholder project.',
       imageReel: [],
     };
